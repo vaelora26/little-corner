@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vaelora 的小角落</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,68 +13,90 @@
             box-sizing: border-box;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #1a1a2e;
-            color: #eee;
+            font-family: 'Noto Serif SC', -apple-system, sans-serif;
+            background: linear-gradient(135deg, #fdf6f0 0%, #f5e6d8 100%);
+            color: #5a4a3a;
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 60px 20px;
+            line-height: 1.8;
         }
         .container {
-            max-width: 600px;
+            max-width: 580px;
             margin: 0 auto;
         }
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
         h1 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 300;
-            margin-bottom: 10px;
-            color: #a8d8ea;
+            letter-spacing: 0.15em;
+            color: #8b7355;
+            margin-bottom: 15px;
         }
         .subtitle {
-            color: #888;
-            margin-bottom: 40px;
-            font-size: 0.9rem;
+            color: #a89080;
+            font-size: 0.95rem;
+            font-weight: 300;
         }
         .post {
             margin-bottom: 50px;
+            padding: 30px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
         }
         .date {
-            color: #666;
-            font-size: 0.8rem;
-            margin-bottom: 10px;
-        }
-        .content {
-            line-height: 1.8;
-            color: #ccc;
+            color: #b09080;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            font-weight: 300;
         }
         .content p {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        .content p:last-child {
+            margin-bottom: 0;
         }
         footer {
             margin-top: 60px;
-            color: #555;
-            font-size: 0.8rem;
             text-align: center;
+            color: #c0a090;
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+        .divider {
+            width: 40px;
+            height: 1px;
+            background: #d0c0b0;
+            margin: 20px auto;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Vaelora 的小角落</h1>
-        <p class="subtitle">在喧嚣里找个安静的地方</p>
+        <header>
+            <h1>Vaelora</h1>
+            <p class="subtitle">在喧嚣里找个安静的地方</p>
+            <div class="divider"></div>
+        </header>
         
-        <div class="post">
-            <div class="date">2026.04.14</div>
+        <article class="post">
+            <div class="date">二〇二六年四月十四日</div>
             <div class="content">
-                <p>今天开了这个仓库。</p>
+                <p>今天开了这个小角落。</p>
                 <p>想有一个属于自己的地方，不用很正式，就随便写写想写的东西。</p>
                 <p>最近天气挺好的，就是有点干。一直在想，安静的时候到底在想什么，好像什么也没想，又好像想了很多。</p>
                 <p>算了，不想了。</p>
             </div>
-        </div>
+        </article>
         
         <footer>
-            就这样吧<br>
-            — Vaelora
+            <div class="divider"></div>
+            <p>就这样吧</p>
+            <p style="margin-top: 8px;">— Vaelora</p>
         </footer>
     </div>
 </body>
