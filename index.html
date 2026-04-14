@@ -12,13 +12,39 @@
             padding: 0;
             box-sizing: border-box;
         }
+        
+        :root {
+            --bg-gradient-1: #fdf6f0;
+            --bg-gradient-2: #f5e6d8;
+            --text-color: #5a4a3a;
+            --text-muted: #a89080;
+            --text-light: #b09080;
+            --post-bg: rgba(255,255,255,0.6);
+            --divider: #d0c0b0;
+            --footer: #c0a090;
+            --h1-color: #8b7355;
+        }
+        
+        [data-theme="dark"] {
+            --bg-gradient-1: #1a1612;
+            --bg-gradient-2: #2a2320;
+            --text-color: #d0c0b0;
+            --text-muted: #9a8a7a;
+            --text-light: #8a7a6a;
+            --post-bg: rgba(40,35,30,0.8);
+            --divider: #4a4035;
+            --footer: #6a5a4a;
+            --h1-color: #c0a080;
+        }
+        
         body {
             font-family: 'Noto Serif SC', -apple-system, sans-serif;
-            background: linear-gradient(135deg, #fdf6f0 0%, #f5e6d8 100%);
-            color: #5a4a3a;
+            background: linear-gradient(135deg, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%);
+            color: var(--text-color);
             min-height: 100vh;
             padding: 60px 20px;
             line-height: 1.8;
+            transition: background 0.3s ease, color 0.3s ease;
         }
         .container {
             max-width: 580px;
@@ -32,23 +58,24 @@
             font-size: 1.8rem;
             font-weight: 300;
             letter-spacing: 0.15em;
-            color: #8b7355;
+            color: var(--h1-color);
             margin-bottom: 15px;
         }
         .subtitle {
-            color: #a89080;
+            color: var(--text-muted);
             font-size: 0.95rem;
             font-weight: 300;
         }
         .post {
             margin-bottom: 50px;
             padding: 30px;
-            background: rgba(255,255,255,0.6);
+            background: var(--post-bg);
             border-radius: 12px;
             backdrop-filter: blur(10px);
+            transition: background 0.3s ease;
         }
         .date {
-            color: #b09080;
+            color: var(--text-light);
             font-size: 0.85rem;
             margin-bottom: 15px;
             font-weight: 300;
@@ -63,19 +90,74 @@
         footer {
             margin-top: 60px;
             text-align: center;
-            color: #c0a090;
+            color: var(--footer);
             font-size: 0.85rem;
             font-weight: 300;
         }
         .divider {
             width: 40px;
             height: 1px;
-            background: #d0c0b0;
+            background: var(--divider);
             margin: 20px auto;
+        }
+        
+        /* 深色模式按钮 */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background: var(--post-bg);
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 1.2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        /* 回到顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background: var(--post-bg);
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 1.2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
+    <button class="theme-toggle" onclick="toggleTheme()" title="切换主题">🌙</button>
+    <button class="back-to-top" onclick="scrollToTop()" title="回到顶部">↑</button>
+    
     <div class="container">
         <header>
             <h1>Vaelora</h1>
@@ -108,5 +190,46 @@
             <p>愿每一个路过的人，都能找到属于自己的光</p>
         </footer>
     </div>
+    
+    <script>
+        // 深色模式
+        function toggleTheme() {
+            const body = document.body;
+            const btn = document.querySelector('.theme-toggle');
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                btn.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                btn.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+        
+        // 记住主题偏好
+        (function() {
+            const saved = localStorage.getItem('theme');
+            if (saved === 'dark') {
+                document.body.setAttribute('data-theme', 'dark');
+                document.querySelector('.theme-toggle').textContent = '☀️';
+            }
+        })();
+        
+        // 回到顶部
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // 滚动时显示/隐藏回到顶部按钮
+        window.addEventListener('scroll', function() {
+            const btn = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+    </script>
 </body>
 </html>
