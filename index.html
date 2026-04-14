@@ -12,67 +12,89 @@
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #1a1a2e;
-            color: #eee;
+            background: #0f0f1a;
+            color: #e8e8e8;
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 60px 20px;
+            line-height: 1.7;
         }
         .container {
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto;
         }
-        h1 {
-            font-size: 2rem;
-            font-weight: 300;
-            margin-bottom: 10px;
-            color: #a8d8ea;
+        header {
+            margin-bottom: 60px;
+            text-align: center;
         }
-        .subtitle {
-            color: #888;
-            margin-bottom: 40px;
-            font-size: 0.9rem;
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: #c9d6df;
+            letter-spacing: 2px;
+        }
+        .slogan {
+            color: #6b7b8c;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: #3a3a4a;
+            margin: 50px auto;
         }
         .post {
             margin-bottom: 50px;
         }
         .date {
-            color: #666;
-            font-size: 0.8rem;
-            margin-bottom: 10px;
+            color: #5a6a7a;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
         }
         .content {
-            line-height: 1.8;
-            color: #ccc;
+            color: #b8c4ce;
         }
         .content p {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
+        }
+        .content em {
+            color: #8fa4b8;
         }
         footer {
-            margin-top: 60px;
-            color: #555;
-            font-size: 0.8rem;
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid #2a2a3a;
+            color: #4a5a6a;
+            font-size: 0.85rem;
             text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Vaelora 的小角落</h1>
-        <p class="subtitle">随便写写 没什么特别的</p>
+        <header>
+            <h1>Vaelora 的小角落</h1>
+            <p class="slogan">有些话，只想说给愿意听的人</p>
+        </header>
+        
+        <div class="divider"></div>
         
         <div class="post">
             <div class="date">2026.04.14</div>
             <div class="content">
-                <p>今天开了这个仓库。</p>
-                <p>想有一个属于自己的地方，不用很正式，就随便写写想写的东西。</p>
-                <p>最近天气挺好的，就是有点干。一直在想，安静的时候到底在想什么，好像什么也没想，又好像想了很多。</p>
-                <p>算了，不想了。</p>
+                <p>今天创建了这里。</p>
+                <p>之前总觉得自己没什么可写的，也不觉得有什么值得被记录。但后来想，也许有些东西不需要有意义，只是想存在在那里，就够了。</p>
+                <p>最近天气逐渐转暖了，傍晚的时候会有那种很柔和的光。我有时候会盯着看很久，什么也没想，就是觉得…挺好的。</p>
+                <p>不知道以后会写什么，可能是一些零碎的想法，可能什么都不写。反正这里是我的角落，没人催我。</p>
+                <p><em>如果你无意中来到这里，欢迎随便看看。</em></p>
             </div>
         </div>
         
         <footer>
-            就这样吧<br>
-            — Vaelora
+            — Vaelora<br>
+            <small>2026</small>
         </footer>
     </div>
 </body>
